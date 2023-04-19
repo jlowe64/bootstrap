@@ -11,6 +11,7 @@ brew 'pyenv'
 brew 'kubectl'
 brew 'awscli'
 brew 'kapp'
+brew 'kustomize'
 
 cask 'google-chrome'
 cask 'slack'
