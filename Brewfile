@@ -12,6 +12,7 @@ brew 'kubectl'
 brew 'awscli'
 brew 'kapp'
 brew 'kustomize'
+brew 'kn'
 
 cask 'google-chrome'
 cask 'slack'

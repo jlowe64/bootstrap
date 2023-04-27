@@ -78,6 +78,13 @@ else
     brew update
 fi
 
+if [ -f /usr/local/bin/ktoolbox ] && confirm "Install ktoolbox?"; then
+    info "ktoolbox found, doing nothing"
+else
+    info "ktoolbox not found, installing"
+    sudo curl -L https://git.io/JeCE4 -o /usr/local/bin/ktoolbox && sudo chmod +x /usr/local/bin/ktoolbox
+fi
+
 if [[ ! -e ~/Development ]]; then
     mkdir ~/Development
 elif [[ ! -d ~/Development ]]; then
