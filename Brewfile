@@ -13,6 +13,7 @@ brew 'awscli'
 brew 'kapp'
 brew 'kustomize'
 brew 'kn'
+brew 'aws-vault'
 
 cask 'google-chrome'
 cask 'slack'
