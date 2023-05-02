@@ -117,12 +117,12 @@ if confirm "Next step installs everything defined in Brewfile - review them BEFO
     brew bundle
 fi
 
-if command -v pyenv &>/dev/null; then
+if command -v pyenv &>/dev/null && confirm "Install Python?"; then
     pyenv install 3.11.2
     pyenv global 3.11.2
 fi
 
-if command -v tfenv &>/dev/null; then
+if command -v tfenv &>/dev/null && confirm "Install tfenv?"; then
     tfenv install 1.4.4
     tfenv use 1.4.4
 fi
