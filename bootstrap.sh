@@ -53,17 +53,23 @@ else
   info "Command Line Tools for Xcode have been installed."
 fi
 
-if [ -d ~/Development/dotfiles ] && confirm "Install .dotfiles from github?"; then
+if [[ ! -e ~/Development/personal ]]; then
+    mkdir -p ~/Development/personal
+elif [[ ! -d ~/Development/ ]]; then
+    echo "~/Development/ already exists but is not a directory" 1>&2
+fi
+
+if [ -d ~/Development/personal/dotfiles ] && confirm "Install .dotfiles from github?"; then
     info "dotfiles found, updating them from github.com/jlowe64/dotfiles"
-    (cd ~/Development/dotfiles && git pull)
-    cp ~/Development/dotfiles/.zshrc ~/
-    cp ~/Development/dotfiles/.zprofile ~/
+    (cd ~/Development/personal/dotfiles && git pull)
+    cp ~/Development/personal/dotfiles/.zshrc ~/
+    cp ~/Development/personal/dotfiles/.zprofile ~/
     source ~/.zshrc
 else
     info "dotfiles not found, getting them from github.com/jlowe64/dotfiles"
-    git clone https://github.com/jlowe64/dotfiles ~/Development/dotfiles
-    cp ~/Development/dotfiles/.zshrc ~/
-    cp ~/Development/dotfiles/.zprofile ~/
+    git clone https://github.com/jlowe64/dotfiles ~/Development/personal/dotfiles
+    cp ~/Development/personal/dotfiles/.zshrc ~/
+    cp ~/Development/personal/dotfiles/.zprofile ~/
     source ~/.zshrc
 fi
 
@@ -83,12 +89,6 @@ if [ -f /usr/local/bin/ktoolbox ] && confirm "Install ktoolbox?"; then
 else
     info "ktoolbox not found, installing"
     sudo curl -L https://git.io/JeCE4 -o /usr/local/bin/ktoolbox && sudo chmod +x /usr/local/bin/ktoolbox
-fi
-
-if [[ ! -e ~/Development ]]; then
-    mkdir ~/Development
-elif [[ ! -d ~/Development ]]; then
-    echo "~/Development already exists but is not a directory" 1>&2
 fi
 
 if [ -f ~/.zshrc ] && confirm "Install zsh completions?"; then

@@ -13,6 +13,8 @@ brew 'awscli'
 brew 'kapp'
 brew 'kustomize'
 brew 'kn'
+brew 'terragrunt'
+brew 'starship'
 
 cask 'google-chrome'
 cask 'slack'
